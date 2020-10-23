@@ -22,7 +22,7 @@
 
 /* Add some padding inside the card container */
 .container {
-  padding: 10%;
+  padding: 5%;
   align-self: centre;
 }
 
@@ -45,7 +45,7 @@
 }
 
 .button:hover{
-    background-color:#a3f561;
+    background-color:rgb(192, 240, 235);
 }
 
 h2{
@@ -81,15 +81,17 @@ iframe{
 
     <div class="card">
         <div class="container">
-            <form style="text-align: center;" target="tableview" action='https://antibrnd.herokuapp.com/user-list' method="GET">
+            <form style="text-align: center;" target="tableview" method="GET">
+        <img src="https://antibrnd.com/wp-content/uploads/2020/05/Rezised-LOGO.png" style="text-align: center;"/>
                 <h2>HI THERE...</h2>
                 <input class="textbox"                   
                     id="limit"
                     type="text"
-                    placeholder="Enter the limit"
+                    placeholder="Enter the limit (eg.100)"
                     name="limit">
                 <br/><br/>
-                <input class="button" type="submit" value="OK">
+                <input class="button" type="submit" value="Normal Order" formaction="/user-list"> 
+                <input class="button" type="submit" value="Rank Order" formaction="/user-rank-list">
             </form>
             <br/>
             <iframe name="tableview" src="/user-list"   id="myIframe" ></iframe>

@@ -1,7 +1,6 @@
 const express=require('express');
 const rest=require("./routes/rest_handler");
 var bodyparser=require('body-parser');
-var path=require('path');
 
 var app=express()
 
@@ -14,10 +13,11 @@ app.get('/',function(req,res){
 })
 
 app.get('/user-list',rest.table);
+app.get('/user-rank-list',rest.table_rank);
 app.post('/signup',rest.store);
 app.get('/myrank',rest.user);
 
-app.listen(process.env.PORT ||5000);
+app.listen(process.env.PORT || 5000);
 
 
 

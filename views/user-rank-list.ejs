@@ -45,6 +45,7 @@
             <th>Serial.NO</th>
             <th>Email Address</th>
             <th>Referrals</th>
+            <th>Rank</th>
           
         </tr>
         
@@ -58,11 +59,12 @@
             <td><%=data.UserID %></td>
             <td><%=data.EmailID %></td>
             <td><%=data.Referral_Count %></td>
+            <td><%=data.rank %></td>
         </tr>
         <%  i++; }); %>
         <% } else{ %>
             <tr>
-                <td colspan="7">No Data Found</td>
+                <td colspan="7">OOPS!..No Data Found</td>
             </tr>
         <% } %>
     </table>
