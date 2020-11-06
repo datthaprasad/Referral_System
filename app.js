@@ -1,7 +1,8 @@
+
 const express=require('express');
 const rest=require("./routes/rest_handler");
 var bodyparser=require('body-parser');
-
+var port=process.env.PORT||5000;
 var app=express()
 
 app.use(bodyparser.json())
@@ -17,7 +18,8 @@ app.get('/user-rank-list',rest.table_rank);
 app.post('/signup',rest.store);
 app.get('/myrank',rest.user);
 
-app.listen(process.env.PORT || 5000);
+app.listen(port,function(){
+console.log('listening on '+port);});
 
 
 

@@ -48,13 +48,20 @@ const store=(req,res,next)=>{
 //For Handling GET request by user
 const get_by_user=(req,res,next)=>{
   let R_COUNT;//store referral_Count
+try{
   db.query(`select Referral_Count from data where UserID='${req.query.U_ID}'`,function(err,data,fields){
     if(err){
 
       res.status(500).json("SOMETHING WENT WRONG, TRY AGAIN"+err.message);
     }
     else{
+	try{
         R_COUNT=data[0].Referral_Count;
+	}
+	catch(err){
+		res.json("WRONG USER ID, TRY AGAIN");
+		return 0;
+	}
         if(R_COUNT===0){
           let count;
           console.log("count is 0");
@@ -93,7 +100,7 @@ const get_by_user=(req,res,next)=>{
           db.query(sql, function (err, data, fields) {
             if (err){
                console.log(err.message);
-               res.status(404).json("NOT FOUND dps");
+               res.status(404).json("NOT FOUND");
             }
             else{  
                 res.status(200).json(data[0]);
@@ -102,6 +109,10 @@ const get_by_user=(req,res,next)=>{
         }
     }
   })
+}
+catch(err){
+res.json("YOU DONT HAVE USER ID");
+}
 
  
  
