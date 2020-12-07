@@ -1,6 +1,7 @@
 version: "3.2"
 services:
   nodejs:
+    restart: always
     build: 
       context: .
     image: dpshetty29/nodejs-mysql-app
